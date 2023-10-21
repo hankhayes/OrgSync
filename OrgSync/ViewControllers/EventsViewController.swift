@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 let events = [Event(title: "Paddleboarding", date: "September 27", coverImage: UIImage(named: "lakeaustin")!), Event(title: "Campus Social", date: "October 10", coverImage: UIImage(named: "utaustin")!)]
 
@@ -13,6 +14,8 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let eventCellIdentifier = "EventCell"
     let detailSegueIdentifier = "eventToEventDetail"
+    
+    let ref = Database.database().reference(withPath: "events")
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var eventsTable: UITableView!
@@ -28,6 +31,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         summaryView.layer.borderWidth = 2
         summaryView.layer.cornerRadius = 10
         summaryView.layer.borderColor = UIColor.gray.cgColor
+        
+        ref.observe(.value, with: {snapshot in
+            print(snapshot.value as Any)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +76,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             destination.eventCoverImage = events[eventIndex].coverImage
             destination.eventTime = events[eventIndex].date
         }
+    }
+    
+    func reloadEventData() {
+        return
     }
 }
 
