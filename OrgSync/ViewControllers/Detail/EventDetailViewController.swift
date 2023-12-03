@@ -6,24 +6,25 @@
 //
 
 import UIKit
+import MapKit
 
 class EventDetailViewController: UIViewController {
     
     var eventName = ""
-    var eventTime = ""
+    var eventDate = ""
     var eventLocation = ""
     var eventNotes = ""
-    var eventCoverImage = UIImage(named: "hank")
+    var eventCoverImage = UIImage(named: "utaustin")
     
-    @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var whenLabel: UILabel!
     @IBOutlet weak var whereLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
     
     override func viewDidLoad() {
         eventNameLabel.text = eventName
-        whenLabel.text = eventTime
+        whenLabel.text = eventDate
         whereLabel.text = eventLocation
         notesLabel.text = eventNotes
         eventImage.image = eventCoverImage

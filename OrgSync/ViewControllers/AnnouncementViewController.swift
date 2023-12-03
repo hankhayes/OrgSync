@@ -7,7 +7,7 @@
 
 import UIKit
 
-let milan = Member(firstName: "Milan", lastName: "Patel", dob: "09/01/01", classification: 3, role: "Social", phone:"5125820924", email:"milan.patel@utexas.edu")
+let milan = Member(firstName: "Milan", lastName: "Patel", birthday: 1001548800, classification: 3, role: "Social", phone:5125820924, email:"milan.patel@utexas.edu")
 
 let announcements = [Announcement(subject: "Dues!", body: "Culpa ea commodo consectetur tempor duis eiusmod veniam. Consectetur amet officia veniam et excepteur reprehenderit esse sunt non nostrud enim.", announcer: milan, date: "Sep 24, 10:09 PM")]
 
@@ -16,15 +16,16 @@ class AnnouncementViewController: UIViewController, UITableViewDelegate, UITable
     let announcementCellIdentifier = "AnnouncementCell"
     let detailSegueIdentifier = "announcementToAnnouncementDetail"
     
-    @IBOutlet weak var titleBackground: UIView!
     @IBOutlet weak var announcementTable: UITableView!
+    @IBOutlet weak var announcementCard: UIView!
+    @IBOutlet weak var announcementCardContainer: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         announcementTable.delegate = self
         announcementTable.dataSource = self
-        titleBackground.layer.cornerRadius = 20
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +40,7 @@ class AnnouncementViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView,
                heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 220
+       return 144
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,5 +68,9 @@ class AnnouncementViewController: UIViewController, UITableViewDelegate, UITable
             destination.body = announcements[announcementIndex].body
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("did select row")
     }
 }

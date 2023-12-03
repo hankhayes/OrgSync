@@ -7,22 +7,34 @@
 
 import UIKit
 
-class Member {
+class Member: Comparable, Equatable {
+    static func < (lhs: Member, rhs: Member) -> Bool {
+        let a = lhs.firstName[lhs.firstName.index(lhs.firstName.startIndex, offsetBy: 0)]
+        let b = rhs.firstName[rhs.firstName.index(rhs.firstName.startIndex, offsetBy: 0)]
+        return a < b
+    }
+    
+    static func == (lhs: Member, rhs: Member) -> Bool {
+        let a = lhs.firstName[lhs.firstName.index(lhs.firstName.startIndex, offsetBy: 0)]
+        let b = rhs.firstName[rhs.firstName.index(rhs.firstName.startIndex, offsetBy: 0)]
+        return a == b
+    }
+    
     
     var firstName:String
     var lastName:String
-    var dob:String
+    var birthday:Int
     var classification:Int
     var role:String
-    var phone:String
+    var phone:Int
     var email:String
     
     // initializes the Weapon class
     // sets damage based on the chosen weapon
-    init(firstName:String, lastName:String, dob:String, classification:Int, role:String, phone:String, email:String) {
+    init(firstName:String, lastName:String, birthday:Int, classification:Int, role:String, phone:Int, email:String) {
         self.firstName = firstName
         self.lastName = lastName
-        self.dob = dob
+        self.birthday = birthday
         self.classification = classification
         self.role = role
         self.phone = phone

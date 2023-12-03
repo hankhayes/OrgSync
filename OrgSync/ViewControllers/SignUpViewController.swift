@@ -1,5 +1,5 @@
 //
-//  CreateAccountViewController.swift
+//  SignUpViewController.swift
 //  OrgSync
 //
 //  Created by Hank Hayes on 10/3/23.
@@ -8,30 +8,24 @@
 import UIKit
 import Firebase
 
-class CreateAccountViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var firstNameField: UITextField!
-    @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
-    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     
     private let ref = Database.database().reference(withPath: "users")
     
-    let loginSegue = "successfulLoginSegue"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstNameField.delegate = self
-        lastNameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
         confirmPasswordField.delegate = self
     }
     
     // Called when 'return' key pressed
-
     func textFieldShouldReturn(_ textField:UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -44,5 +38,17 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createAccountPressed(_ sender: Any) {
+        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
+            (authResult,error) in
+            if let error = error as NSError? {
+                self.statusLabel.text = "\(error.localizedDescription)"
+            } else {
+                self.statusLabel.text = ""
+            }
+        }
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true)
     }
 }

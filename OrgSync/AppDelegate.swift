@@ -8,6 +8,16 @@
 import UIKit
 import Firebase
 
+let currentUser = CurrentMember(
+    firstName: "",
+    lastName: "",
+    birthday: 0,
+    classification: 0,
+    role: "",
+    phone: 0,
+    email: ""
+)
+
 @main
 // @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +25,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        // Light/Dark/Dynamic appearance
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let window = windowScene.windows.first {
+                // window.backgroundColor = .white
+                // window.tintColor = .white
+                if let selectedAppearance = UserDefaults.standard.string(forKey: "appearance") {
+                    if selectedAppearance == "dark" {
+                        window.overrideUserInterfaceStyle = .dark
+                    } else if selectedAppearance == "light" {
+                        window.overrideUserInterfaceStyle = .light
+                    }
+                } else {
+                    window.overrideUserInterfaceStyle = .unspecified
+                }
+            }
+        }
+
+        // Haptic feedback
+        if let _ = UserDefaults.standard.value(forKey: "hapticPreference") as? Bool {
+        } else {
+            UserDefaults.standard.set(true, forKey: "hapticPreference")
+        }
+        
+        // App Icon
+        if let _ = UserDefaults.standard.value(forKey: "appIcon") as? String {
+        } else {
+            UserDefaults.standard.setValue("classic", forKey: "appIcon")
+        }
+        
         return true
     }
 

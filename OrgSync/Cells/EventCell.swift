@@ -14,6 +14,7 @@ class EventCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        eventImage.backgroundColor = .cyan
     }
     
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MemberDetailViewController: UIViewController {
     
@@ -20,10 +21,10 @@ class MemberDetailViewController: UIViewController {
     
     var firstName = ""
     var lastName = ""
-    var birthday = ""
+    var birthday = 0
     var classification = 0
     var role = ""
-    var phone = ""
+    var phone = 0
     var email = ""
     var image = UIImage(named: "utaustin")
     
@@ -36,12 +37,36 @@ class MemberDetailViewController: UIViewController {
         
         firstNameLabel.text = firstName
         lastNameLabel.text = lastName
-        birthdayLabel.text = birthday
-        classificationLabel.text = String(classification)
+        
+        // Setting birthday
+        birthdayLabel.text = convertUnixTimeToRegularDate(unixTime: TimeInterval(birthday))
+        
+        switch classification {
+        case 0:
+            classificationLabel.text = "Freshman"
+        case 1:
+            classificationLabel.text = "Sopohmore"
+        case 2:
+            classificationLabel.text = "Junior"
+        case 3:
+            classificationLabel.text = "Senior"
+        default:
+            classificationLabel.text = "Alumni"
+        }
+        
         roleLabel.text = role
-        phoneLabel.text = phone
+        phoneLabel.text = String(phone)
         emailLabel.text = email
         imageView.image = image
+    }
+    
+    func convertUnixTimeToRegularDate(unixTime: TimeInterval) -> String {
+        let date = Date(timeIntervalSince1970: unixTime)
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-YYYY" // You can customize the date format as needed
+        
+        let formattedDate = dateFormatter.string(from: date)
+        return formattedDate
     }
 }

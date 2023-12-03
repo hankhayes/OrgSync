@@ -17,20 +17,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var createAccountNavButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Auth.auth().addStateDidChangeListener() {
-            (auth,user) in
-            if user != nil {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                self.emailField.text = nil
-                self.passwordField.text = nil
-                print(Auth.auth().currentUser!.uid)
-            }
-        }
     }
     
     // Called when a user logs in
@@ -41,7 +29,9 @@ class LoginViewController: UIViewController {
                 print("Error: \(error.localizedDescription)")
             } else {
                 print("Successful login")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVCTabBar")
+                destinationVC?.modalPresentationStyle = .fullScreen
+                self.present(destinationVC!, animated: true)
             }
         }
     }
@@ -55,5 +45,9 @@ class LoginViewController: UIViewController {
     // Called when the user clicks on the view outside of the UITextField
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true)
     }
 }
