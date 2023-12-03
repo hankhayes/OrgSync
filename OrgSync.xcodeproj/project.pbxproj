@@ -95,6 +95,7 @@
 		3630D7722AC0B5850080EDA9 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		365B12882AC47082004DD20B /* AnnouncementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailViewController.swift; sourceTree = "<group>"; };
 		365CC0722AFE94AC003E892D /* EnterLeftSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLeftSegue.swift; sourceTree = "<group>"; };
+		366333CE2B1D0EF900AB9AB8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = OrgSync/README.md; sourceTree = SOURCE_ROOT; };
 		3663AF5B2ACA5CA90031F8C5 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		3663AF5D2ACA5CEB0031F8C5 /* CreateMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMemberViewController.swift; sourceTree = "<group>"; };
 		3663AF612ACA5D860031F8C5 /* CreateAnnouncementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnouncementViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +186,7 @@
 		3630D7592AC0A0190080EDA9 /* OrgSync */ = {
 			isa = PBXGroup;
 			children = (
+				366333CE2B1D0EF900AB9AB8 /* README.md */,
 				367CDC6A2ACCAC4F00DA503A /* OrgSync.entitlements */,
 				3630D75A2AC0A0190080EDA9 /* AppDelegate.swift */,
 				3630D75C2AC0A0190080EDA9 /* SceneDelegate.swift */,
