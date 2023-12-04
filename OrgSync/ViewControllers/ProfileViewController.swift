@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import CoreMotion
+import CoreGraphics
 
 protocol FirebaseNameUpdater {
     func updateName()
@@ -18,12 +19,9 @@ class ProfileViewController: UIViewController, FirebaseNameUpdater {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
-    @IBOutlet weak var birthdayLabel: UILabel!
-    @IBOutlet weak var classificationLabel: UILabel!
-    @IBOutlet weak var roleLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var membershipCard: UIView!
+    
+    @IBOutlet weak var logoBackground: UIView!
     
     @IBOutlet weak var animatedCard: UIView!
     @IBOutlet weak var hapticButton: UIButton!
@@ -43,8 +41,6 @@ class ProfileViewController: UIViewController, FirebaseNameUpdater {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         membershipCard.layer.cornerRadius = 20
         updateCardColor()
-        updateName()
-        
     }
     
     func updateCardColor() {
@@ -80,46 +76,18 @@ class ProfileViewController: UIViewController, FirebaseNameUpdater {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Profile will appear")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("Profile appeared")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        print("Profile DISappeared")
+        updateName()
     }
     
     func updateName() {
-        print("updating name...")
-        // firstNameLabel.text = currentUser.firstName
-        // lastNameLabel.text = currentUser.lastName
+        firstNameLabel.text = currentUser.firstName
+        lastNameLabel.text = currentUser.lastName
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditProfile",
            let nextVC = segue.destination as? EditProfileViewController {
             nextVC.delegate = self
-        }
-    }
-    
-    @IBAction func hapticButtonPressed(_ sender: Any) {
-        if let hapticPreference = defaults.value(forKey: "hapticPreference") as? Bool {
-            if hapticPreference {
-                let feedbackGenerator = UINotificationFeedbackGenerator()
-                feedbackGenerator.prepare()
-                feedbackGenerator.notificationOccurred(.success)
-            }
-        }
-        updateName()
-    }
-    
-    @IBAction func iconButton(_ sender: Any) {
-        UIApplication.shared.setAlternateIconName("orgsync-reverse") { (error) in
-            if let error = error {
-                print("Failed request to update the app’s icon: \(error)")
-            }
         }
     }
 }

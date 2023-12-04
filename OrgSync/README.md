@@ -1,4 +1,7 @@
 # OrgSync
+Hank Hayes
+Built for CS329E
 ---
-
-Hi all
+# Table of contents
+---
+1.  

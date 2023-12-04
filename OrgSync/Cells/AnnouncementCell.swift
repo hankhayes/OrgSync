@@ -13,8 +13,11 @@ class AnnouncementCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var announcerLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var tagLabel: UILabel!
+    @IBOutlet weak var announcementBackground: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        announcementBackground.layer.cornerRadius = 10
     }
 }
