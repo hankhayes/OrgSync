@@ -52,29 +52,5 @@ class WelcomeViewController: UIViewController {
         }
         print("filled in current user")
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        print("view did disappear")
-    }
-    
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        let destinationVC = storyboard?.instantiateViewController(identifier: "login")
-        let presentationDelegate = PresentRight()
-        destinationVC?.modalPresentationStyle = .custom
-        destinationVC?.transitioningDelegate = presentationDelegate
-        present(destinationVC!, animated: true)
-    }
-    
-    @IBAction func signUpButtonPressed(_ sender: Any) {
-        let destinationVC = storyboard?.instantiateViewController(identifier: "signup")
-        let presentationDelegate = PresentRight()
-        destinationVC?.modalPresentationStyle = .custom
-        destinationVC?.transitioningDelegate = presentationDelegate
-        
-        present(destinationVC!, animated: true)
-    }
-    
-    @IBAction func unwind(for unwindSegue: ExitLeftSegue, towards subsequentVC: UIViewController) {
-    }
 }
 

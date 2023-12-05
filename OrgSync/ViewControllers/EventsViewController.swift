@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SuccessNotifier {
     
     var firebaseEvents = [Event]()
     var filteredEvents = [Event]()
@@ -194,9 +194,14 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             dateFormatter.dateFormat = "MMMM d, yyyy h:mma"
             let formattedDate = dateFormatter.string(from: filteredEvents[eventIndex].date)
             destination.eventDate = formattedDate
+            destination.date = filteredEvents[eventIndex].date
             
             destination.eventLocation = filteredEvents[eventIndex].location
             destination.eventNotes = filteredEvents[eventIndex].notes
+        }
+        if segue.identifier == "newEvent",
+           let destination = segue.destination as? CreateEventViewController {
+            print()
         }
     }
     
@@ -250,6 +255,19 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func reloadEventData() {
         return
+    }
+    
+    func notifySuccess() {
+        let successAlert = UIAlertController(title: "Success", message: "You have sucessfully made an announcement", preferredStyle: .alert)
+        successAlert.addAction(UIAlertAction(title: "OK", style: .default))
+        if let hapticPreference = defaults.value(forKey: "hapticPreference") as? Bool {
+            if hapticPreference {
+                let feedbackGenerator = UINotificationFeedbackGenerator()
+                feedbackGenerator.prepare()
+                feedbackGenerator.notificationOccurred(.success)
+            }
+        }
+        self.present(successAlert, animated: true)
     }
 }
 

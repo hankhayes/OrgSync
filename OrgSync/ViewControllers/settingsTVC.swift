@@ -9,13 +9,16 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class settingsTVC: UITableViewController {
+class settingsTVC: UITableViewController, UITextFieldDelegate {
     
     private let ref = Database.database().reference(withPath: "users/hank")
     
     @IBOutlet weak var appearanceSegmentControl: UISegmentedControl!
     @IBOutlet weak var hapticSwitch: UISwitch!
     @IBOutlet weak var appIconSegemtControl: UISegmentedControl!
+    
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,12 @@ class settingsTVC: UITableViewController {
         } else {
             hapticSwitch.isOn = false
         }
+        
+        firstNameField.text = currentUser.firstName
+        lastNameField.text = currentUser.lastName
+        
+        firstNameField.delegate = self
+        lastNameField.delegate = self
     }
     
     @IBAction func appearanceChanged(_ sender: Any) {
@@ -149,9 +158,6 @@ class settingsTVC: UITableViewController {
         
     }
     
-    
-    
-    
     @IBAction func logOutButtonPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -159,5 +165,16 @@ class settingsTVC: UITableViewController {
         } catch {
             print("Sign out error")
         }
+    }
+    
+    // Called when 'return' key pressed
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user clicks on the view outside of the UITextField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

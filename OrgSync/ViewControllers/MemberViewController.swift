@@ -258,6 +258,4 @@ class MemberViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
     }
-    
-    
 }

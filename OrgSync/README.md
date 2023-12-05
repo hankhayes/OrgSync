@@ -33,7 +33,8 @@ OrgSync is built on top of a FireBase Realtime Database, which allows students t
 - [x] Settings screen. The implemented behaviors are **dark mode, haptics, and alternate app icons**.
   - `SettingsTVC.swift`
   - `SettingsViewController.swift`
-- [ ] Non default fonts and colors used
+- [x] Non default fonts and colors used
+  - Verdana & System Indigo
 ### Two major elements used
 - [x] Login/register path with Firebase
     - `WelcomeViewController.swift`
@@ -42,42 +43,42 @@ OrgSync is built on top of a FireBase Realtime Database, which allows students t
 - [ ] Core Data
 - [ ] User profile path using camera and photo library
 - [x] Multithreading
-    - `EventsViewController.swift`
+    - `EventsViewController.swift` refreshing table views
 - [ ] SwiftUI
 ### Minor elements used
-- [x] Two or more additional view types, being segmented controllers, switches, and menu buttons
-    - Segemented controllers and switches in `SettingsTVC.swift`
-    - Menu buttons in `MemberViewController.swift` + more
+- [x] Two or more additional view types, being segmented controllers, picker views, switches, and menu buttons
+    - `SettingsTVC.swift` changes settings using segmented controllers and switches
+    - `AnnouncementViewController.swift` has a menu button that allows filtering and announcement creation
+    - `CreateAnnouncementViewController.swift` uses a picker view to choose an announcement tag
 #### At least one of the following
 - [x] Table View
-    - `MemberViewController.swift`
+    - `MemberViewController.swift` displays members in a UITableView
 - [ ] Collection View
 - [x] Tab Bar View Controller
-    - `TabBarController.swift`
+    - `TabBarController.swift` controls navigation throughout the app
 - [ ] Page View Controller
 #### At least one of the following
 - [x] Alerts
-    - `SettingsTVC.swift`
+    - `AnnouncementViewController.swift` serves an alert upon successfully creating an event
 - [ ] Popovers
-- [x] Stack Views
-    - ??
+- [ ] Stack Views
 - [ ] Scroll Views
 - [x] Haptics
-    - `TabBarController.swift`
+    - `TabBarController.swift` plays a haptic when the tab is changed
 - [x] User Defaults
-    - `SettingsTVC.swift`
+    - `SettingsTVC.swift` stores user settings in User Defaults
 #### At least one of the following
 - [ ] Local Notifications
 - [ ] Core Graphics
 - [ ] Gesture Recognition
 - [ ] Animation
-- [ ] Calendar
+- [x] Calendar
+  - `EventDetailViewController.swift` lets you add an event to your calendar
 - [ ] Core Motion
 - [ ] Core Location / MapKit
 - [ ] Core Audio
 - [ ] Firebase (if not used to fulfill major element requirement)
-- [x] Core Data (if not used to fulfill major element requirement)
-    - ??
+- [ ] Core Data (if not used to fulfill major element requirement)
 - [ ] Other
 ## Contact
 hankhayes@utexas.edu

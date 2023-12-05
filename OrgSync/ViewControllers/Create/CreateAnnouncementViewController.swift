@@ -15,7 +15,7 @@ class CreateAnnouncementViewController: UIViewController, UIPickerViewDataSource
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var tagPicker: UIPickerView!
     
-    
+    var delegate = UIViewController()
     
     let data = ["General", "Social", "Philanthropy", "Finance"]
     var selectedTag = "general"
@@ -25,12 +25,10 @@ class CreateAnnouncementViewController: UIViewController, UIPickerViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        submitButton.layer.borderWidth = 2
-        submitButton.layer.cornerRadius = 10
-        submitButton.layer.borderColor = UIColor(named: "burntorange")?.cgColor
-        
         tagPicker.delegate = self
         tagPicker.dataSource = self
+        
+        submitButton.layer.cornerRadius = 10
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,6 +64,8 @@ class CreateAnnouncementViewController: UIViewController, UIPickerViewDataSource
         let date = Date()
         let announcementID = UUID().uuidString
         
+        let announcementVC = delegate as! SuccessNotifier
+        
         let newFirebaseAnnouncement = [
             "announcementID": announcementID,
             "subject": subjectField.text!,
@@ -79,5 +79,8 @@ class CreateAnnouncementViewController: UIViewController, UIPickerViewDataSource
         
         newItemRef.setValue(newFirebaseAnnouncement)
         
+        self.dismiss(animated: true) {
+            announcementVC.notifySuccess()
+        }
     }
 }

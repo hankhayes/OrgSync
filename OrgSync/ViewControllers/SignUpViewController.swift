@@ -49,6 +49,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

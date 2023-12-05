@@ -8,13 +8,18 @@
 import UIKit
 import Firebase
 
-class AnnouncementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol SuccessNotifier {
+    func notifySuccess()
+}
+
+class AnnouncementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SuccessNotifier {
     
     let announcementCellIdentifier = "AnnouncementCell"
     let detailSegueIdentifier = "announcementToAnnouncementDetail"
     
     @IBOutlet weak var announcementTable: UITableView!
     @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // Database reference
     private let ref = Database.database().reference().child("announcements")
@@ -224,11 +229,91 @@ class AnnouncementViewController: UIViewController, UITableViewDelegate, UITable
             destination.date = formattedDate
             destination.body = filteredAnnouncements[announcementIndex].body
             destination.tag = filteredAnnouncements[announcementIndex].tag
-            
         }
+        if segue.identifier == "newAnnouncement",
+           let destination = segue.destination as? CreateAnnouncementViewController {
+            destination.delegate = self
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            filteredAnnouncements = firebaseAnnouncements
+            for announcement in firebaseAnnouncements {
+                switch filterButton.menu?.selectedElements.first?.title {
+                case "All":
+                    filteredAnnouncements.append(announcement)
+                case "Social":
+                    if announcement.tag == "social" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                case "Philanthropy":
+                    if announcement.tag == "philanthropy" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                case "Finance":
+                    if announcement.tag == "finance" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                case "General":
+                    if announcement.tag == "general" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                default:
+                    print("unknown")
+                }
+            }
+            announcementTable.reloadData()
+        } else {
+            filteredAnnouncements = []
+            for announcement in firebaseAnnouncements {
+                switch filterButton.menu?.selectedElements.first?.title {
+                case "All":
+                    if announcement.subject.lowercased().contains(searchText.lowercased()) {
+                        filteredAnnouncements.append(announcement)
+                    }
+                case "Social":
+                    if announcement.subject.lowercased().contains(searchText.lowercased()) && announcement.tag == "social" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                case "Philanthropy":
+                    if announcement.subject.lowercased().contains(searchText.lowercased()) && announcement.tag == "philanthropy" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                case "Finance":
+                    if announcement.subject.lowercased().contains(searchText.lowercased()) && announcement.tag == "finance" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                case "General":
+                    if announcement.subject.lowercased().contains(searchText.lowercased()) && announcement.tag == "general" {
+                        filteredAnnouncements.append(announcement)
+                    }
+                default:
+                    print("unknown")
+                }
+            }
+            announcementTable.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("did select row")
+    }
+    
+    func notifySuccess() {
+        let successAlert = UIAlertController(title: "Success", message: "You have sucessfully made an announcement", preferredStyle: .alert)
+        successAlert.addAction(UIAlertAction(title: "OK", style: .default))
+        if let hapticPreference = defaults.value(forKey: "hapticPreference") as? Bool {
+            if hapticPreference {
+                let feedbackGenerator = UINotificationFeedbackGenerator()
+                feedbackGenerator.prepare()
+                feedbackGenerator.notificationOccurred(.success)
+            }
+        }
+        self.present(successAlert, animated: true)
     }
 }

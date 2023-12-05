@@ -19,14 +19,14 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var notesField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var delegate = UIViewController()
+    
     private let ref = Database.database().reference().child("events")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        submitButton.layer.borderWidth = 2
+
         submitButton.layer.cornerRadius = 10
-        submitButton.layer.borderColor = UIColor(named: "burntorange")?.cgColor
     }
     
     @IBAction func submitButtonPressed(_ sender: Any) {
