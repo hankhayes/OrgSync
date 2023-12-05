@@ -15,6 +15,7 @@ class AnnouncementCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var announcementBackground: UIView!
+    @IBOutlet weak var tagBackground: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

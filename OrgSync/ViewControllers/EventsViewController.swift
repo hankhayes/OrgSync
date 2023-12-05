@@ -201,7 +201,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         if segue.identifier == "newEvent",
            let destination = segue.destination as? CreateEventViewController {
-            print()
+            destination.delegate = self
         }
     }
     
@@ -258,7 +258,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func notifySuccess() {
-        let successAlert = UIAlertController(title: "Success", message: "You have sucessfully made an announcement", preferredStyle: .alert)
+        let successAlert = UIAlertController(title: "Success", message: "You have sucessfully created an event", preferredStyle: .alert)
         successAlert.addAction(UIAlertAction(title: "OK", style: .default))
         if let hapticPreference = defaults.value(forKey: "hapticPreference") as? Bool {
             if hapticPreference {

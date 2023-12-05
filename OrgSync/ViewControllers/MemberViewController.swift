@@ -207,7 +207,6 @@ class MemberViewController: UIViewController, UITableViewDelegate, UITableViewDa
             destination.role = filteredMembers[memberIndex].role
             destination.phone = filteredMembers[memberIndex].phone
             destination.email = filteredMembers[memberIndex].email
-            destination.image = UIImage(named: "hank")
         }
     }
     

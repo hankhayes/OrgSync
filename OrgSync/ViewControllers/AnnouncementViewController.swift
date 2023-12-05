@@ -212,6 +212,7 @@ class AnnouncementViewController: UIViewController, UITableViewDelegate, UITable
         let formattedDate = dateFormatter.string(from: filteredAnnouncements[row].date)
         cell.dateLabel.text = formattedDate
         cell.layer.cornerRadius = 10
+        cell.tagBackground.layer.cornerRadius = 10
         
         return cell
     }

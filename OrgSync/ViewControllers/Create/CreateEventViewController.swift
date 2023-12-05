@@ -35,6 +35,8 @@ class CreateEventViewController: UIViewController {
         
         let eventID = UUID().uuidString
         
+        let eventVC = delegate as! SuccessNotifier
+        
         let newFirebaseEvent = [
             "eventID": eventID,
             "title": nameField.text!,
@@ -46,5 +48,9 @@ class CreateEventViewController: UIViewController {
         let newItemRef = self.ref.child(eventID)
         
         newItemRef.setValue(newFirebaseEvent)
+        
+        self.dismiss(animated: true) {
+            eventVC.notifySuccess()
+        }
     }
 }

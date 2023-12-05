@@ -17,7 +17,6 @@ class MemberDetailViewController: UIViewController {
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
     
     var firstName = ""
     var lastName = ""
@@ -26,14 +25,9 @@ class MemberDetailViewController: UIViewController {
     var role = ""
     var phone = 0
     var email = ""
-    var image = UIImage(named: "utaustin")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageView.layer.cornerRadius = imageView.frame.size.width / 2
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor(named: "burntorange")?.cgColor
         
         firstNameLabel.text = firstName
         lastNameLabel.text = lastName
@@ -57,7 +51,6 @@ class MemberDetailViewController: UIViewController {
         roleLabel.text = role
         phoneLabel.text = String(phone)
         emailLabel.text = email
-        imageView.image = image
     }
     
     func convertUnixTimeToRegularDate(unixTime: TimeInterval) -> String {
