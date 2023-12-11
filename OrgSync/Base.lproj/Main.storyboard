@@ -631,41 +631,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDw-tY-5ta">
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTI-g6-vVS">
-                                <rect key="frame" x="16" y="823" width="398" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Sign Up">
-                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
-                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <rect key="frame" x="16" y="828" width="398" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="slD-Dd-Ng9" kind="show" identifier="welcomeToSignUp" id="CUV-Sa-09U"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JR-hr-mxY">
-                                <rect key="frame" x="16" y="768" width="398" height="35"/>
+                                <rect key="frame" x="16" y="778" width="398" height="30"/>
                                 <color key="tintColor" systemColor="secondaryLabelColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Login">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="PL0-qc-Iq7" kind="show" identifier="welcomeToLogin" id="CCQ-G8-n2J"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OrgSync" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zz-Qy-1hR">
-                                <rect key="frame" x="126" y="437" width="179" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQH-5l-kla">
+                                <rect key="frame" x="32" y="366" width="366" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The better way to manage people" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zz-Qy-1hR">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="200"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                        <color key="textColor" name="text"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="7Zz-Qy-1hR" firstAttribute="top" secondItem="bQH-5l-kla" secondAttribute="top" id="3eZ-MY-Mkg"/>
+                                    <constraint firstItem="7Zz-Qy-1hR" firstAttribute="leading" secondItem="bQH-5l-kla" secondAttribute="leading" id="8GP-LW-dHI"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Zz-Qy-1hR" secondAttribute="bottom" id="CoJ-cz-suQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Zz-Qy-1hR" secondAttribute="trailing" id="Hwz-Y4-qrb"/>
+                                    <constraint firstAttribute="height" constant="200" id="pUK-Rz-TDa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lDT-9e-EjJ"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1JR-hr-mxY" firstAttribute="centerX" secondItem="hiz-Ef-YQw" secondAttribute="centerX" id="74W-Ic-aLA"/>
+                            <constraint firstItem="bQH-5l-kla" firstAttribute="centerY" secondItem="hiz-Ef-YQw" secondAttribute="centerY" id="Ea6-nX-85d"/>
+                            <constraint firstItem="bQH-5l-kla" firstAttribute="leading" secondItem="lDT-9e-EjJ" secondAttribute="leading" constant="32" id="JJH-hE-dKF"/>
+                            <constraint firstItem="bQH-5l-kla" firstAttribute="centerX" secondItem="hiz-Ef-YQw" secondAttribute="centerX" id="LzX-I7-rNz"/>
+                            <constraint firstItem="lDT-9e-EjJ" firstAttribute="trailing" secondItem="bQH-5l-kla" secondAttribute="trailing" constant="32" id="NBz-86-ANZ"/>
+                            <constraint firstItem="zDw-tY-5ta" firstAttribute="top" secondItem="hiz-Ef-YQw" secondAttribute="top" id="NXv-lv-M8l"/>
+                            <constraint firstItem="zDw-tY-5ta" firstAttribute="trailing" secondItem="lDT-9e-EjJ" secondAttribute="trailing" id="OvM-0d-97S"/>
+                            <constraint firstItem="zDw-tY-5ta" firstAttribute="leading" secondItem="lDT-9e-EjJ" secondAttribute="leading" id="SGK-0J-2bj"/>
+                            <constraint firstAttribute="bottom" secondItem="zDw-tY-5ta" secondAttribute="bottom" id="Vpe-6o-hlm"/>
                             <constraint firstItem="1JR-hr-mxY" firstAttribute="leading" secondItem="lDT-9e-EjJ" secondAttribute="leading" constant="16" id="WIa-H0-v8O"/>
                             <constraint firstItem="XTI-g6-vVS" firstAttribute="top" secondItem="1JR-hr-mxY" secondAttribute="bottom" constant="20" id="dCj-6H-OWE"/>
                             <constraint firstItem="lDT-9e-EjJ" firstAttribute="bottom" secondItem="XTI-g6-vVS" secondAttribute="bottom" constant="40" id="mKV-AG-4vz"/>
@@ -676,13 +698,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="h1k-Zp-dIo"/>
                     <connections>
+                        <outlet property="backgroundView" destination="zDw-tY-5ta" id="9ye-Rd-SiQ"/>
                         <outlet property="loginButton" destination="1JR-hr-mxY" id="DMV-Vt-4Cd"/>
                         <outlet property="signUpButton" destination="XTI-g6-vVS" id="2OS-MC-QZ7"/>
+                        <outlet property="titleLabel" destination="7Zz-Qy-1hR" id="D6J-Zy-0Qn"/>
+                        <outlet property="titleView" destination="bQH-5l-kla" id="h0j-iR-Dlg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akb-g1-6LK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3767" y="-1990"/>
+            <point key="canvasLocation" x="3766.046511627907" y="-1990.5579399141632"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="qG6-wH-vUX">
@@ -733,13 +758,6 @@
                                     <action selector="createAccountPressed:" destination="slD-Dd-Ng9" eventType="touchUpInside" id="rCl-Fd-jhG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qa-Yx-CZE">
-                                <rect key="frame" x="194" y="456" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tt9-wn-bVM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -768,7 +786,6 @@
                         <outlet property="emailField" destination="Kx6-oY-J8Y" id="NDl-C9-lne"/>
                         <outlet property="passwordField" destination="glo-8M-yaP" id="wE6-EC-sj0"/>
                         <outlet property="signUpButton" destination="q05-vt-kaR" id="l7N-KB-C2m"/>
-                        <outlet property="statusLabel" destination="9Qa-Yx-CZE" id="Ngj-yd-AVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYG-oc-wqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -942,13 +959,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hDY-lr-7Ro">
                                                 <rect key="frame" x="126" y="0.0" width="126" height="52.333333333333336"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-kl-If5">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-kl-If5">
                                                         <rect key="frame" x="54.666666666666657" y="0.0" width="17" height="32.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pq-0O-ljA">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pq-0O-ljA">
                                                         <rect key="frame" x="22" y="32.666666666666657" width="82" height="19.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -959,13 +976,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9sM-Av-wAo">
                                                 <rect key="frame" x="252" y="0.0" width="126" height="52.333333333333336"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvP-DL-kYO">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvP-DL-kYO">
                                                         <rect key="frame" x="54.666666666666686" y="0.0" width="17" height="32.666666666666664"/>
                                                         <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D39-H2-YjE">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D39-H2-YjE">
                                                         <rect key="frame" x="39.333333333333314" y="32.666666666666657" width="47.666666666666657" height="19.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -1837,23 +1854,26 @@
         <namedColor name="subtleGray">
             <color red="0.89800000190734863" green="0.89800000190734863" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

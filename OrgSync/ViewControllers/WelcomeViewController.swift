@@ -12,6 +12,10 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,40 @@ class WelcomeViewController: UIViewController {
                 self.present(destinationVC!, animated: true)
             }
         }
+        
+        // Title label style
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor(named: "text")?.cgColor, UIColor.lightGray.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = titleView.bounds
+        
+        view.addSubview(titleLabel)
+        
+        titleView.layer.addSublayer(gradientLayer)
+        titleView.mask = titleLabel
+        titleView.alpha = 0
+        
+        // Button styling
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor(named: "borderColor")?.cgColor
+        loginButton.backgroundColor = UIColor(named: "moduleBackground")
+        
+        signUpButton.layer.cornerRadius = 5
+        signUpButton.layer.borderWidth = 1
+        signUpButton.layer.borderColor = UIColor(named: "borderColor")?.cgColor
+        signUpButton.backgroundColor = UIColor(named: "moduleBackground")
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.titleView.alpha = 1.0
+        })
+        
+        drawRadialGradients()
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.backgroundView.alpha = 1.0
+        })
     }
     
     func fillInCurrentUser() {
@@ -51,6 +89,37 @@ class WelcomeViewController: UIViewController {
             }
         }
         print("filled in current user")
+    }
+    
+    func drawRadialGradients() {
+        let gradient = CAGradientLayer()
+        let colors = [UIColor(named: "myIndigo")?.cgColor, UIColor.clear.cgColor]
+    
+        gradient.colors = colors
+        gradient.type = .radial
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = CGRect(x: 0, y: 250, width: 300, height: 300)
+        
+        let gradient2 = CAGradientLayer()
+        let colors2 = [UIColor.systemIndigo.cgColor, UIColor.clear.cgColor]
+    
+        gradient2.colors = colors2
+        gradient2.type = .radial
+        gradient2.locations = [0.0, 1.0]
+        gradient2.startPoint = CGPoint(x: 0.5, y: 0.5)
+        gradient2.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient2.frame = CGRect(x: 50, y: 300, width: 400, height: 400)
+        
+        backgroundView.layer.addSublayer(gradient)
+        backgroundView.layer.addSublayer(gradient2)
+        
+        let blur = UIVisualEffectView(effect:UIBlurEffect(style: .regular))
+        blur.frame = backgroundView.bounds
+
+        backgroundView.addSubview(blur)
+        backgroundView.alpha = 0
     }
 }
 

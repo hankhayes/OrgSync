@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		360988A82ACCE51200C74B0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360988A72ACCE51200C74B0C /* LoginViewController.swift */; };
 		361CDB3E2B1642A6001FF77B /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361CDB3D2B1642A6001FF77B /* AddLocationViewController.swift */; };
+		3621C2A82B1EEF79000D2FF7 /* README.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3621C2A72B1EEF79000D2FF7 /* README.pdf */; };
 		3623CB5A2B0D3A8600913A35 /* CurrentMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3623CB592B0D3A8600913A35 /* CurrentMember.swift */; };
 		3630D75B2AC0A0190080EDA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630D75A2AC0A0190080EDA9 /* AppDelegate.swift */; };
 		3630D75D2AC0A0190080EDA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3630D75C2AC0A0190080EDA9 /* SceneDelegate.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		360988A72ACCE51200C74B0C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		361CDB3D2B1642A6001FF77B /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		3621C2A72B1EEF79000D2FF7 /* README.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = README.pdf; sourceTree = "<group>"; };
 		3623CB592B0D3A8600913A35 /* CurrentMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMember.swift; sourceTree = "<group>"; };
 		3630D7572AC0A0190080EDA9 /* OrgSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrgSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3630D75A2AC0A0190080EDA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		3630D7592AC0A0190080EDA9 /* OrgSync */ = {
 			isa = PBXGroup;
 			children = (
+				3621C2A72B1EEF79000D2FF7 /* README.pdf */,
 				366333CE2B1D0EF900AB9AB8 /* README.md */,
 				367CDC6A2ACCAC4F00DA503A /* OrgSync.entitlements */,
 				3630D75A2AC0A0190080EDA9 /* AppDelegate.swift */,
@@ -334,6 +337,7 @@
 				368C9F1C2ACBA85C0071FEB8 /* GoogleService-Info.plist in Resources */,
 				3630D7642AC0A01A0080EDA9 /* Assets.xcassets in Resources */,
 				3630D7622AC0A0190080EDA9 /* Main.storyboard in Resources */,
+				3621C2A82B1EEF79000D2FF7 /* README.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

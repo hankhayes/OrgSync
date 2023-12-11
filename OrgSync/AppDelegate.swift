@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         window.overrideUserInterfaceStyle = .light
                     }
                 } else {
-                    window.overrideUserInterfaceStyle = .unspecified
+                    window.overrideUserInterfaceStyle = .dark
                 }
             }
         }
